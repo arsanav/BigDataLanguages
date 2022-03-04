@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Lab2;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -41,6 +41,8 @@ public class Lab2 {
 //            System.out.println(string[i]);
 //        }
 //    }
+
+
 
 
 //    public static void main(String[] args){
