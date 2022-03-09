@@ -46,11 +46,11 @@ public class Vector{
     }
 
     public double modulus(){   //модуль
-        double mod = 0;
+        double mod_sq = 0;
         for (double d : this.data){
-            mod += d*d;
+            mod_sq += d*d;
         }
-        return mod;
+        return Math.sqrt(mod_sq);
     }
 
     public double scalar(Vector v){ //скалярное произведение

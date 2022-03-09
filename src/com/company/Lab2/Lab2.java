@@ -127,12 +127,14 @@ public class Lab2 {
 //        }
 //
 //        int temp;
-//        for (int i = 0; i < n; i++) {
+//        for (int r = 0; r < k; r++) {
+//            for (int i = 0; i < n; i++) {
 //                temp = matrix[i][0];
 //                for (int j = 0; j < n - 1; j++) {
-//                        matrix[i][j] = matrix[i][j + 1];
+//                    matrix[i][j] = matrix[i][j + 1];
 //                }
-//                matrix[i][n-1] = temp;
+//                matrix[i][n - 1] = temp;
+//            }
 //        }
 //
 //        System.out.println("Сдвиг влево:");
@@ -143,12 +145,14 @@ public class Lab2 {
 //            System.out.println();
 //        }
 //
-//        for (int j=0; j<n; j++) {
-//            temp = matrix[n-1][j];
-//            for (int i = n - 1; i > 0; i--) {
-//                matrix[i][j] = matrix[i - 1][j];
+//        for(int r = 0; r < k; r++) {
+//            for (int j = 0; j < n; j++) {
+//                temp = matrix[n - 1][j];
+//                for (int i = n - 1; i > 0; i--) {
+//                    matrix[i][j] = matrix[i - 1][j];
+//                }
+//                matrix[0][j] = temp;
 //            }
-//            matrix[0][j] = temp;
 //        }
 //
 //        System.out.println("Сдвиг вниз:");
@@ -159,12 +163,14 @@ public class Lab2 {
 //            System.out.println();
 //        }
 //
-//        for (int j = 0; j < n; j++) {
-//            temp = matrix[0][j];
-//            for (int i = 0; i < n - 1; i++) {
-//                matrix[i][j] = matrix[i + 1][j];
+//        for (int r = 0; r < k; r++) {
+//            for (int j = 0; j < n; j++) {
+//                temp = matrix[0][j];
+//                for (int i = 0; i < n - 1; i++) {
+//                    matrix[i][j] = matrix[i + 1][j];
+//                }
+//                matrix[n - 1][j] = temp;
 //            }
-//            matrix[n - 1][j] = temp;
 //        }
 //
 //        System.out.println("Сдвиг вверх:");
@@ -210,7 +216,7 @@ public class Lab2 {
             System.out.println();
         }
 
-        int temp, number = 0, z = 0;
+        int z = 0;
         int[] arr = new int[n * n];
         for(int[] string : matrix){
             for(int el : string){
