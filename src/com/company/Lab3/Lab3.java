@@ -1,7 +1,6 @@
 package com.company.Lab3;
 
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
 
 public class Lab3 {
     //Определить класс Вектор размерности n. Определить несколько конструкторов.
@@ -149,7 +148,257 @@ public class Lab3 {
 //    }
 
 
+
+//    // Customer: id, Фамилия, Имя, Отчество, Адрес, Номер кредитной карточки, Номер банковского счета.
+//    // Создать массив объектов. Вывести: a) список покупателей в алфавитном порядке;
+//    // b) список покупателей, у которых номер кредитной карточки находится в заданном интервале.
+//    public static void sorting(ArrayList<Customer> customers){
+//        System.out.println("Сортировка:");
+//        Comparator<Customer> CustomersComparator
+//                = Comparator.comparing(Customer::getSurname);
+//        customers.sort(CustomersComparator);
+//        for (Customer customer:customers){
+//            System.out.println(customer);
+//        }
+//    }
+//
+//    public static void credit_select(ArrayList<Customer> customers, long credit_start, long credit_end){
+//        System.out.println("Карты из диапазона:");
+//        for (Customer customer:customers){
+//            if ((customer.getCredit_card() > credit_start) && (customer.getCredit_card() < credit_end)){
+//                System.out.println(customer);
+//            }
+//        }
+//    }
+//
+//    public static void main(String[] args){
+//        ArrayList<Customer> customers = new ArrayList<>();
+//        Scanner scanner = new Scanner(System.in);
+//        int number;
+//        System.out.print("Введите количество покупателей: ");
+//        if (scanner.hasNextInt()) {
+//            number = scanner.nextInt();
+//        } else {
+//            System.out.println("error");
+//            number = -1;
+//        }
+//
+//        for (int i = 0; i < number; i++){
+//            Customer customer = new Customer();
+//            customer.setId(i + 1);
+//            System.out.println("Покупатель " + i + ":");
+//            System.out.print("Введите фамилию: ");
+//            if (scanner.hasNext()) {
+//                customer.setSurname(scanner.next());
+//            } else {
+//                System.out.println("error");
+//            }
+//            System.out.print("Введите имя: ");
+//            if (scanner.hasNext()) {
+//                customer.setName(scanner.next());
+//            } else {
+//                System.out.println("error");
+//            }
+//            System.out.print("Введите отчество: ");
+//            if (scanner.hasNext()) {
+//                customer.setLastname(scanner.next());
+//            } else {
+//                System.out.println("error");
+//            }
+//            System.out.print("Введите номер карты: ");
+//            if (scanner.hasNextLong()) {
+//                customer.setCredit_card(scanner.nextLong());
+//            } else {
+//                System.out.println("error");
+//            }
+//            System.out.print("Введите номер счета: ");
+//            if (scanner.hasNextLong()) {
+//                customer.setBank_acc(scanner.nextLong());
+//            } else {
+//                System.out.println("error");
+//            }
+//            customers.add(customer);
+//        }
+//        sorting(customers);
+//        credit_select(customers, 0,110000000 );
+//
+//    }
+
+
+
+
+//    public static void same_diagnosis(ArrayList<Patient> patients, String diagnosis){
+//        System.out.println("Пациенты с диагнозом: " + diagnosis);
+//        for (Patient patient:patients){
+//            if (patient.getDiagnosis().equals(diagnosis)){
+//                System.out.println(patient);
+//            }
+//        }
+//    }
+//
+//    public static void card_select(ArrayList<Patient> patients, long card_start, long card_end){
+//        System.out.println("Карты из диапазона:");
+//        for (Patient patient:patients){
+//            if ((patient.getCard_number() > card_start) && (patient.getCard_number() < card_end)){
+//                System.out.println(patient);
+//            }
+//        }
+//    }
+//
+//    public static void main(String[] args){
+//        ArrayList<Patient> patients = new ArrayList<>();
+//        Scanner scanner = new Scanner(System.in);
+//        int number;
+//        System.out.print("Введите количество пациентов: ");
+//        if (scanner.hasNextInt()) {
+//            number = scanner.nextInt();
+//        } else {
+//            System.out.println("error");
+//            number = -1;
+//        }
+//
+//        for (int i = 0; i < number; i++){
+//            Patient patient = new Patient();
+//            patient.setId(i + 1);
+//            System.out.println("Покупатель " + i + ":");
+//            System.out.print("Введите фамилию: ");
+//            if (scanner.hasNext()) {
+//                patient.setSurname(scanner.next());
+//            } else {
+//                System.out.println("error");
+//            }
+//            System.out.print("Введите имя: ");
+//            if (scanner.hasNext()) {
+//                patient.setName(scanner.next());
+//            } else {
+//                System.out.println("error");
+//            }
+//            System.out.print("Введите отчество: ");
+//            if (scanner.hasNext()) {
+//                patient.setLastname(scanner.next());
+//            } else {
+//                System.out.println("error");
+//            }
+//            System.out.print("Введите адрес: ");
+//            if (scanner.hasNextLine()) {
+//                patient.setAddress(scanner.next());
+//            } else {
+//                System.out.println("error");
+//            }
+//            scanner.next();
+//            System.out.print("Введите телефон: ");
+//            if (scanner.hasNext()) {
+//                patient.setPhone(scanner.next());
+//            } else {
+//                System.out.println("error");
+//            }
+//            System.out.print("Введите номер карты: ");
+//            if (scanner.hasNextLong()) {
+//                patient.setCard_number(scanner.nextLong());
+//            } else {
+//                System.out.println("error");
+//            }
+//            System.out.print("Введите диагноз: ");
+//            if (scanner.hasNext()) {
+//                patient.setDiagnosis(scanner.next());
+//            } else {
+//                System.out.println("error");
+//            }
+//
+//            patients.add(patient);
+//        }
+//        same_diagnosis(patients, "ОРВИ");
+//        card_select(patients, 0,110000000 );
+//    }
+
+
+
+
+//    public static void main(String[] args){
+//        Scanner scanner = new Scanner(System.in);
+//        int number;
+//        System.out.print("Введите количество элементов: ");
+//        if (scanner.hasNextInt()) {
+//            number = scanner.nextInt();
+//        } else {
+//            System.out.println("error");
+//            number = -1;
+//        }
+//
+//        ArrayList<Integer> input_data = new ArrayList<>(number);
+//        System.out.print("Введите элементы: ");
+//        for (int i = 0; i < number; i++){
+//            if (scanner.hasNextInt()) {
+//                 input_data.add(scanner.nextInt());
+//            } else {
+//                System.out.println("error");
+//            }
+//        }
+//        One_Dim_Array array = new One_Dim_Array(input_data);
+//
+//        ArrayList<Integer> input_data_second = new ArrayList<>(number);
+//        System.out.print("Введите второй массив: ");
+//        for (int i = 0; i < number; i++){
+//            if (scanner.hasNextInt()) {
+//                input_data_second.add(scanner.nextInt());
+//            } else {
+//                System.out.println("error");
+//            }
+//        }
+//        One_Dim_Array second_array = new One_Dim_Array(input_data_second);
+//        System.out.println(array + " " + second_array);
+//
+//        System.out.println("Сумма: " + array.sum(second_array));
+//        System.out.println("Разность: " + array.diff(second_array));
+//        System.out.println("Произведение: " + array.multi(second_array));
+//    }
+
+
+
+
     public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        int numerator, denominator;
+        System.out.print("Введите числитель: ");
+        if (scanner.hasNextInt()) {
+            numerator = scanner.nextInt();
+        } else {
+            System.out.println("error");
+            numerator = -1;
+        }
+        System.out.print("Введите знаменатель: ");
+        if (scanner.hasNextInt()) {
+            denominator = scanner.nextInt();
+        } else {
+            System.out.println("error");
+            denominator = -1;
+        }
+        Simple_Fraction first_fraction = new Simple_Fraction(numerator, denominator);
+
+        System.out.print("Введите числитель: ");
+        if (scanner.hasNextInt()) {
+            numerator = scanner.nextInt();
+        } else {
+            System.out.println("error");
+            numerator = -1;
+        }
+        System.out.print("Введите знаменатель: ");
+        if (scanner.hasNextInt()) {
+            denominator = scanner.nextInt();
+        } else {
+            System.out.println("error");
+            denominator = -1;
+        }
+        Simple_Fraction second_fraction = new Simple_Fraction(numerator, denominator);
+
+        first_fraction.print();
+        second_fraction.print();
+
+        ((Simple_Fraction) first_fraction.sum(second_fraction)).print();
+        ((Simple_Fraction) first_fraction.diff(second_fraction)).print();
+        ((Simple_Fraction) first_fraction.multi(second_fraction)).print();
+        ((Simple_Fraction) first_fraction.div(second_fraction)).print();
+
 
     }
 }
