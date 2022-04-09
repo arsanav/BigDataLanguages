@@ -11,7 +11,7 @@ public class Element {
     }
 
     public void setType(String type) {
-        if ((type=="Catalog")||(type=="Track")){
+        if ((Objects.equals(type, "Catalog"))||(Objects.equals(type, "Track"))){
             this.type = type;
         } else{
             System.out.println("Ошибка, неверный тип элемента");

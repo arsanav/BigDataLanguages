@@ -11,7 +11,6 @@ public abstract class Student implements Abiturient {
         this.results = new HashMap<>();
     }
 
-    @Override
     public String getName() {
         return name;
     }

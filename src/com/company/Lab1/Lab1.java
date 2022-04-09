@@ -54,7 +54,6 @@ public class Lab1 {
               System.out.println("error");
               n = - 1;
         }
-
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 1; i <= n; i++){
             System.out.print("Введите число " + i + ": ");
@@ -64,10 +63,8 @@ public class Lab1 {
                 System.out.print("error");
             }
         }
-
         System.out.println("max: " + Collections.max(list));
         System.out.println("min: " + Collections.min(list));
-
         for (int number : list){
             if (number % 3 == 0){
                 System.out.print(number + " ");
