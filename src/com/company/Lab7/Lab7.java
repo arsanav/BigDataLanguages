@@ -78,35 +78,69 @@ public class Lab7 {
 //    }
 
 
+//    public static void main(String[] args){
+//        String text = """
+//                В русском тексте каждую букву заменить ее порядковым номерам в\s
+//                алфавите. При выводе в одной строке печатать текст с двумя\s
+//                прабелами между буквами, в следующей страке внизу\s
+//                под каждой буквой печатать ее номер.""";
+//        int n;
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Введите количество символов: ");
+//        if (scanner.hasNextInt()) {
+//            n = scanner.nextInt();
+//        } else {
+//            System.out.println("error");
+//            n = -1;
+//        }
+//
+//        char[] symbols = text.toLowerCase().replaceAll("[\n\\s]", "").toCharArray();
+//        HashMap<Character, Integer> symbolsHashMap = new HashMap<>();
+//        for (char sym : symbols){
+//            Integer number = symbolsHashMap.get(sym);
+//            if (number == null){
+//                number = 0;
+//            }
+//                number++;
+//                symbolsHashMap.put(sym, number);
+//        }
+//        symbolsHashMap.entrySet().stream()
+//                .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
+//                .limit(n).forEach(System.out::println);
+//    }
+
+
     public static void main(String[] args){
         String text = """
-                В русском тексте каждую букву заменить ее порядковым номерам в\s
+                В русском текст каждую букву заменить ее порядковым номером в\s
                 алфавите. При выводе в одной строке печатать текст с двумя\s
-                прабелами между буквами, в следующей страке внизу\s
-                под каждой буквой печатать ее номер.""";
-        int n;
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите количество символов: ");
-        if (scanner.hasNextInt()) {
-            n = scanner.nextInt();
-        } else {
-            System.out.println("error");
-            n = -1;
-        }
-
-        char[] symbols = text.toLowerCase().replaceAll("[\n\\s]", "").toCharArray();
-        HashMap<Character, Integer> symbolsHashMap = new HashMap<>();
-        for (char sym : symbols){
-            Integer number = symbolsHashMap.get(sym);
-            if (number == null){
-                number = 0;
+                пробелами между буквами, в следующей строке внизу\s
+                по каждой буквой печатать ее номер. Найти предложения\s
+                с повторяющимися словами. текст""";
+        String[] sentences = text.split("\\.");
+        int max = 0, buf;
+        String word_max = "", word_buf;
+        for (String sentence : sentences){
+            String[] words = sentence.toLowerCase(Locale.ROOT).split(" ");
+            for(String word : words){
+                buf = 0;
+                word_buf = word;
+                String[] sentences_eq = text.replace(sentence + "\\.", "").split("\\.");
+                for(String sentence_eq : sentences_eq){
+                    String[] words_eq = sentence_eq.toLowerCase(Locale.ROOT).split(" ");
+                    for(String word_eq : words_eq){
+                        if (word.equals(word_eq)){
+                            buf++;
+                            break;
+                        }
+                    }
+                }
+                if (buf > max){
+                    max = buf;
+                    word_max = word_buf;
+                }
             }
-                number++;
-                symbolsHashMap.put(sym, number);
         }
-        symbolsHashMap.entrySet().stream()
-                .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
-                .limit(n).forEach(System.out::println);
+        System.out.println(word_max + ": " + max);
     }
-
 }
