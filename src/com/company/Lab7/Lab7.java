@@ -6,6 +6,7 @@ import java.util.*;
 
 public class Lab7 {
 
+
 //    private static final String text =  "В русском тексте каждую букву заменить ее порядковым номером в \n" +
 //            "алфавите. При выводе в одной строке печатать текст с двумя\n" +
 //            "пробелами между буквами, в следующей строке внизу\n" +
@@ -110,37 +111,144 @@ public class Lab7 {
 //    }
 
 
+//    public static void main(String[] args){
+//        String text = """
+//                В русском текст каждую букву заменить ее порядковым номером в\s
+//                алфавите. При выводе в одной строке печатать текст с двумя\s
+//                пробелами между буквами, в следующей строке внизу\s
+//                по каждой буквой печатать ее номер. Найти предложения\s
+//                с повторяющимися словами. текст""";
+//        String[] sentences = text.split("\\.");
+//        int max = 0, buf;
+//        String word_max = "", word_buf;
+//        for (String sentence : sentences){
+//            String[] words = sentence.toLowerCase(Locale.ROOT).split(" ");
+//            for(String word : words){
+//                buf = 0;
+//                word_buf = word;
+//                String[] sentences_eq = text.replace(sentence + "\\.", "").split("\\.");
+//                for(String sentence_eq : sentences_eq){
+//                    String[] words_eq = sentence_eq.toLowerCase(Locale.ROOT).split(" ");
+//                    for(String word_eq : words_eq){
+//                        if (word.equals(word_eq)){
+//                            buf++;
+//                            break;
+//                        }
+//                    }
+//                }
+//                if (buf > max){
+//                    max = buf;
+//                    word_max = word_buf;
+//                }
+//            }
+//        }
+//        System.out.println(word_max + ": " + max);
+//    }
+
+
+//    public static void main(String[] args){
+//        String text = """
+//                В русском текст каждую букву заменить ее порядковым номером в\s
+//                алфавите. При выводе в русском одной строке печатать текст с двумя\s
+//                пробелами между буквами, в следующей строке внизу\s
+//                по каждой буквой печатать ее номер. Найти предложения\s
+//                с повторяющимися словами.""";
+//        String[] sentences = text.replaceAll(",", "").split("\\.");
+//        String uniq_word = "Таких слов нет", buf;
+//        boolean flag = true;
+//        String[] words = sentences[0].toLowerCase(Locale.ROOT).split("\\s");
+//        sentences[0] = "";
+//        for (String word : words){
+//            buf = word;
+//            for (String sentence : sentences){
+//                if (sentence.contains(word)) {
+//                    flag = false;
+//                    break;
+//                }
+//            }
+//            if (flag){
+//                uniq_word = buf;
+//                break;
+//            }
+//            flag = true;
+//        }
+//        System.out.println(uniq_word);
+//    }
+
+
+//    public static void main(String[] args){
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Введите текст:");
+//        String text = scanner.nextLine(), buf = " ";
+//        while (!(buf.isEmpty())){
+//            buf = scanner.nextLine();
+//            text += "\n" + buf;
+//        }
+//        HashMap<String, Integer> wordsHashMap = new HashMap<>();
+//        System.out.println("Введите список слов:");
+//        buf = scanner.nextLine();
+//        while (!(buf.isEmpty())){
+//            wordsHashMap.put(buf, 0);
+//            buf = scanner.nextLine();
+//        }
+//        String[] words = text.replaceAll(",", "").split("\\s");
+//        for (String word : wordsHashMap.keySet()) {
+//            Integer number = wordsHashMap.get(word);
+//            for (String text_word : words) {
+//                if (Objects.equals(word, text_word)) {
+//                    number++;
+//                }
+//            }
+//            wordsHashMap.put(word, number);
+//        }
+//        wordsHashMap.entrySet().stream()
+//                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+//                .forEach(System.out::println);
+//    }
+
+
+
     public static void main(String[] args){
         String text = """
                 В русском текст каждую букву заменить ее порядковым номером в\s
-                алфавите. При выводе в одной строке печатать текст с двумя\s
+                алфавите. При выводе в русском одной строке печатать текст с двумя\s
                 пробелами между буквами, в следующей строке внизу\s
                 по каждой буквой печатать ее номер. Найти предложения\s
-                с повторяющимися словами. текст""";
-        String[] sentences = text.split("\\.");
-        int max = 0, buf;
-        String word_max = "", word_buf;
-        for (String sentence : sentences){
-            String[] words = sentence.toLowerCase(Locale.ROOT).split(" ");
-            for(String word : words){
-                buf = 0;
-                word_buf = word;
-                String[] sentences_eq = text.replace(sentence + "\\.", "").split("\\.");
-                for(String sentence_eq : sentences_eq){
-                    String[] words_eq = sentence_eq.toLowerCase(Locale.ROOT).split(" ");
-                    for(String word_eq : words_eq){
-                        if (word.equals(word_eq)){
-                            buf++;
-                            break;
+                с повторяющимися словами.""";
+
+        Comparator<String> comparator = new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                String alpha = "аеёиоуэюя";
+                int buf_1, buf_2;
+                if (o1.length() > o2.length()){
+                    return -1;
+                } else if (o1.length() < o2.length()){
+                    return 1;
+                } else{
+                    buf_1 = buf_2 = 0;
+                    for (char sym : o1.toCharArray()){
+                        if (alpha.indexOf(sym) != -1){
+                            buf_1++;
                         }
                     }
-                }
-                if (buf > max){
-                    max = buf;
-                    word_max = word_buf;
+                    for (char sym : o2.toCharArray()){
+                        if (alpha.indexOf(sym) != -1){
+                            buf_2++;
+                        }
+                    }
+                    if (buf_1 > buf_2){
+                        return 1;
+                    } else return -1;
                 }
             }
+        };
+
+        String[] words = text.toLowerCase(Locale.ROOT).replaceAll("[,.\n]","").split("\\s");
+        List<String> words_list = new ArrayList<String>(Arrays.asList(words));
+        words_list.sort(comparator);
+        for (String word : words_list){
+            System.out.println(word);
         }
-        System.out.println(word_max + ": " + max);
     }
 }
