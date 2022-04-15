@@ -3,7 +3,7 @@ package com.company.Lab8;
 import java.util.Random;
 
 public class Magazin {
-    public int amount;
+    public volatile int amount;
     Random random = new Random();
 
     public static void main(String[] args){
